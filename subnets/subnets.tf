@@ -13,14 +13,6 @@ provider "azurerm" {
     
   }
 }
-variable "RGName" {
-  type = string
-  default = "ResourceGroup-1"
-}
-variable "VNETName" {
-  type = string
-  default = "virtualNetwork1"
-}
 
 resource "azurerm_subnet" "subnet1" {
   name                 = "Prod"
