@@ -5,6 +5,12 @@ terraform {
       version = "2.75.0"
     }
   }
+  backend "azurerm" {
+    resource_group_name = "ResourceGroup-1"
+    storage_account_name = "terraformstorageac1234"
+    container_name = "terraform"
+    key = "subnet.tfstate"
+  }
 }
 
 provider "azurerm" {
@@ -13,6 +19,8 @@ provider "azurerm" {
     
   }
 }
+
+
 
 resource "azurerm_subnet" "subnet1" {
   name                 = "Prod"
