@@ -36,3 +36,14 @@ resource "azurerm_network_interface" "NIC1" {
     private_ip_address_allocation = "Dynamic"
   }
 }
+resource "azurerm_network_interface" "NIC2" {
+  name                = "networkinterface2"
+  location            = "West Europe"
+  resource_group_name = "ResourceGroup-1"
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = data.terraform_remote_state.subnetID.outputs.ProdSubnet
+    private_ip_address_allocation = "Dynamic"
+  }
+}

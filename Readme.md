@@ -11,3 +11,4 @@
 * Terraform tfstate file stored in azure storage account so that our information can be kept secret.
 * Terraform output block
 * Terraform data block to fetch data from tfstate file
+* Terraform virtual machine creation

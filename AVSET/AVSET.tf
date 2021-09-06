@@ -5,6 +5,12 @@ terraform {
       version = "2.75.0"
     }
   }
+  backend "azurerm" {
+    resource_group_name = "ResourceGroup-1"
+    storage_account_name = "terraformstorageac1234"
+    container_name = "terraform"
+    key = "AVSET.tfstate"
+  }
 }
 
 provider "azurerm" {
@@ -48,6 +54,29 @@ resource "azurerm_availability_set" "AVSET3" {
 
   tags = {
     environment = "Stakeholders"
+  }
+  platform_update_domain_count = local.updateDomain
+  platform_fault_domain_count = local.faultDomain
+}
+resource "azurerm_availability_set" "AVSET4" {
+  name                = "AvailabilitySet4"
+  location            = local.location
+  resource_group_name = local.ResourceGroup
+
+  tags = {
+    environment = "Financer"
+  }
+  platform_update_domain_count = local.updateDomain
+  platform_fault_domain_count = local.faultDomain
+}
+
+resource "azurerm_availability_set" "AVSET5" {
+  name                = "AvailabilitySet5"
+  location            = local.location
+  resource_group_name = local.ResourceGroup
+
+  tags = {
+    environment = "Corporator"
   }
   platform_update_domain_count = local.updateDomain
   platform_fault_domain_count = local.faultDomain
