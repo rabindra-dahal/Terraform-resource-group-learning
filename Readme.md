@@ -7,3 +7,4 @@
 * Terraform interpolation using resource group and virtual network
 * "terraform apply -auto-approve" command should be used if we want to create resource without asking for the confirmation.
 *  Variables Interpolation using Subnets by use of keyword "var".
+* Locals Interpolation using AVSET(Availability Set) {use of locals and local variable}
